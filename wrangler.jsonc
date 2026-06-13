@@ -4,7 +4,7 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "mudhal",
+	"name": "ai-readiness",
 	"compatibility_date": "2026-06-05",
 	"main": "./workers/app.ts",
 	"observability": {
@@ -17,9 +17,8 @@
 	"d1_databases": [
 		{
 			"binding": "DB",
-			"database_name": "mudhal",
-			// Replace with the id from `npx wrangler d1 create mudhal`
-			"database_id": "REPLACE_WITH_YOUR_D1_DATABASE_ID",
+			"database_name": "ari",
+			"database_id": "8aa048a1-4cc5-4780-a405-892a2710fa9b",
 			"migrations_dir": "drizzle/migrations"
 		}
 	]
@@ -31,8 +30,8 @@
 	// "assets": { "directory": "./public/", "binding": "ASSETS" }
 	/**
 	 * R2 bucket — uncomment when you install the `r2-uploads` skill.
-	 * Create it first: npx wrangler r2 bucket create mudhal-uploads
+	 * Create it first: npx wrangler r2 bucket create ai-readiness-uploads
 	 * https://developers.cloudflare.com/r2/
 	 */
-	// "r2_buckets": [ { "binding": "UPLOADS", "bucket_name": "mudhal-uploads" } ]
+	// "r2_buckets": [ { "binding": "UPLOADS", "bucket_name": "ai-readiness-uploads" } ]
 }

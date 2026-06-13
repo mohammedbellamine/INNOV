@@ -1,5 +1,5 @@
-// Mudhal embeddable widget. Usage on any site:
-//   <div data-mudhal="ITEM_ID"></div>
+// AI Readiness embeddable widget. Usage on any site:
+//   <div data-ai-readiness="ITEM_ID"></div>
 //   <script src="https://<app-host>/widget.js" async></script>
 // Renders each tagged element in an isolated shadow root.
 import { h, render } from "preact";
@@ -19,10 +19,10 @@ const SCRIPT_SRC =
 const BASE = apiBase(SCRIPT_SRC);
 
 async function mount(el: HTMLElement) {
-  if (el.dataset.mudhalMounted) return;
-  el.dataset.mudhalMounted = "1";
+  if (el.dataset.ai-readinessMounted) return;
+  el.dataset.ai-readinessMounted = "1";
 
-  const id = el.dataset.mudhal;
+  const id = el.dataset.ai-readiness;
   if (!id) return;
 
   const shadow = el.attachShadow({ mode: "open" });
@@ -39,14 +39,14 @@ async function mount(el: HTMLElement) {
     root.innerHTML = "";
     render(h(EmbedView, { item }), root);
   } catch (err) {
-    console.error("[mudhal] failed to load", id, err);
+    console.error("[ai-readiness] failed to load", id, err);
     root.innerHTML = "";
   }
 }
 
 function scan() {
   document
-    .querySelectorAll<HTMLElement>("[data-mudhal]")
+    .querySelectorAll<HTMLElement>("[data-ai-readiness]")
     .forEach((el) => void mount(el));
 }
 
